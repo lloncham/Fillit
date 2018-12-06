@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:32:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/05 17:14:04 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/06 15:12:38 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int		isvalid(char *str)
 {
 	if (goodchar(str) != 0)
 		return (-1);
-	printf("%s", "ok");
 	if (touch(str) != 0)
 		return (-1);
 	return (0);

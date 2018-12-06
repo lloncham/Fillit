@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pos_tetri.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fcazier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/06 15:12:41 by fcazier          ###   ########.fr       */
+/*   Created: 2018/12/06 11:11:59 by fcazier           #+#    #+#             */
+/*   Updated: 2018/12/06 15:12:30 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
+void		pos_x_y(t_tris tetris)
 {
-	int fd;
 	int x;
 	int y;
-	int i;
-	t_tris tabtetris[27];
 
+	y = 0;
 	x = 0;
-	i = 0;
-	if (fd == -1)
-		return (-1);
-	if (ac != 2)
-		return (-2);
-	//if (!read_tetri(tetri, fd))
-	//	return (-3);
-	fd = open(av[1], O_RDONLY);
-//	read_tetri(tabtetris, fd);
-	return (0);
+	while (y <= 4)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			if (tetris.content[y][x] == '#')
+			{
+				tetris.x = x;
+				tetris.y = y;
+				break;
+			}
+			x++;
+		}
+		y++;
+	}
 }
