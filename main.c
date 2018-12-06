@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/06 15:12:41 by fcazier          ###   ########.fr       */
+/*   Updated: 2018/12/06 16:26:45 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		main(int ac, char **av)
 	int x;
 	int y;
 	int i;
+	t_tris tetris;
 	t_tris tabtetris[27];
 
 	x = 0;
@@ -29,6 +30,6 @@ int		main(int ac, char **av)
 	//if (!read_tetri(tetri, fd))
 	//	return (-3);
 	fd = open(av[1], O_RDONLY);
-//	read_tetri(tabtetris, fd);
+	read_tetri(tabtetris, fd);
 	return (0);
 }
