@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:57:50 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/06 16:44:13 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/06 17:56:25 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		read_tetri(t_tris *tabtetris, int fd)
 		if (isvalid(buff, ret) != 0)
 			return (0);
 		tabtetris[i] = new_tetri(buff, ret);
-		printf("%s\n", tabtetris[i].content[0]);
 		i++;
 	}
 	return (i);
@@ -40,7 +39,10 @@ t_tris		new_tetri(char *buff, int len)
 	while (i < len)
 	{
 		if (i % 5 < 4)
+		{
 			tetris.content[i / 5][i % 5] = *(buff + i);
+			printf("%c", tetris.content[i/5][i%5]);
+		}
 		else
 			tetris.content[i / 5][i % 5] = '\0';
 		i++;
