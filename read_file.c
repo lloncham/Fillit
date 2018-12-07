@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 15:57:50 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/06 17:56:25 by lloncham         ###   ########.fr       */
+/*   Created: 2018/12/07 14:17:42 by lloncham          #+#    #+#             */
+/*   Updated: 2018/12/07 15:50:34 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,36 @@ int		read_tetri(t_tris *tabtetris, int fd)
 t_tris		new_tetri(char *buff, int len)
 {
 	t_tris tetris;
-	int i;
+	int 	i;
+	int		j;
+	int		spos[2];
 
 	i = 0;
+	j = 0;
+	spos[0] = 3;
+	spos[1] = 3;
 	while (i < len)
 	{
-		if (i % 5 < 4)
+		if (buff[i] == '#')
 		{
-			tetris.content[i / 5][i % 5] = *(buff + i);
-			printf("%c", tetris.content[i/5][i%5]);
+			if (spos[0] > i % 5)
+				spos[0] = i % 5;
+			if (spos[1] > i / 5)
+				spos[1] = i / 5;
 		}
-		else
-			tetris.content[i / 5][i % 5] = '\0';
 		i++;
 	}
+	i = spos[1] * 5 + spos[0];
+	while (i < len)
+	{
+		if (buff[i] == '#')
+		{
+			tetris.content[j][0] = (i % 5) - spos[0];
+			tetris.content[j][1] = (i / 5) - spos[1];
+			j++;
+		}
+		i++;
+	}
+	printf("x: %d y: %d\n", tetris.content[3][0], tetris.content[3][1]);
 	return (tetris);
 }

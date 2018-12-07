@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_file.c                                       :+:      :+:    :+:   */
+/*   valid_FILE.C                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 15:32:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/06 15:12:38 by fcazier          ###   ########.fr       */
+/*   Created: 2018/12/06 16:52:20 by lloncham          #+#    #+#             */
+/*   Updated: 2018/12/07 15:03:27 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		goodchar(char *str)
+int		goodchar(char *str, int len)
 {
 	int i;
 	int point;
@@ -32,13 +32,15 @@ int		goodchar(char *str)
 		}
 		else
 		{
+			//bezarre
 			if (str[i] != '\n')
 				return (-1);
 		}
 		i++;
 	}
-	if (str[20] != '\n' && str[20] != '\0')
-		return (-2);
+	if (str[len] != '\0')
+		return (-2); 
+	//bezarre
 	if (point != 12 || hash != 4)
 		return (-3);
 	return (0);
@@ -55,13 +57,13 @@ int		touch(char *str)
 	{
 		if (str[i] == '#')
 		{
-			if (str[i + 1] == '#')
+			if (((i + 1) < 21) && str[i + 1] == '#')
 				tetri++;
-			if (str[i - 1] == '#')
+			if (((i - 1) > -1) && str[i - 1] == '#')
 				tetri++;
-			if (str[i + 5] == '#')
+			if (((i + 5) < 21) && str[i + 5] == '#')
 				tetri++;
-			if (str[i - 5] == '#')
+			if (((i - 5) > -1) && str[i - 5] == '#')
 				tetri++;
 		}
 		i++;
@@ -71,9 +73,9 @@ int		touch(char *str)
 	return (0);
 }
 
-int		isvalid(char *str)
+int		isvalid(char *str, int len)
 {
-	if (goodchar(str) != 0)
+	if (goodchar(str, len) != 0)
 		return (-1);
 	if (touch(str) != 0)
 		return (-1);
