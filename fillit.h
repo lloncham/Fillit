@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:28:36 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/07 15:50:41 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/14 15:31:54 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ typedef struct		s_tris
 int					isvalid(char *str, int len);
 t_tris				new_tetri(char *buff, int len);
 int					read_tetri(t_tris *tabtetris, int fd);
-int					first_pos_y(t_tris tetris);
-int					first_pos_x(t_tris tetris);
-char				**pos_tetri(t_tris tetris, int ybase, int xbase);
-
+int					min_t(int nb);
+int					size_tabtetris(t_tris *tabtetris);
+int					create_tab(char **map, int size);
+void				ft_print_map(char **map, int size);
+int					min_map(int nb);
 #endif
