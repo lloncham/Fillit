@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/14 15:58:56 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/14 18:44:04 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,25 @@ int		create_tab(char **map, int size)
 	int y;
 
 	y = 0;
-	if (!(map = (char**)malloc(sizeof(char*) * size * size + 1)))
+	if (!(map = (char **)malloc(sizeof(char *) * (size + 1))))
 		return (0);
 	while (y < size)
 	{
 		x = 0;
-		//ft_putnbr(y);
-		while (x != size)
+		printf("y : %d\n", y);
+		if (!(map[y] = (char *)malloc(sizeof(char) * (size + 1))))
+				return (0);
+		while (x < size)
 		{
-			*map = malloc(sizeof(char) * size * size + 1);
+			printf("x : %d\n", x);
 			map[y][x] = '.';
-			ft_putnbr(x);
 			x++;
 		}
 		map[y][x] = '\0';
 		y++;
 	}
-	map[y][x] = 0;
+	printf("%d\n", 1);
+//	map[y][x] = 0;
 	return (1);
 }
 
@@ -96,8 +98,9 @@ int		main(int ac, char **av)
 //		write(1, "Error\n", 6);
 //		return (0);
 //	}
-	create_tab(map, size);
-	ft_print_map(map, size);
+	printf("%d\n", create_tab(map, size));
+	
+//	ft_print_map(map, size);
 //	printf("%d\n", read_tetri(tabtetris, fd));
 	close(fd);
 	return (0);
