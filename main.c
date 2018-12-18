@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/14 18:44:04 by fcazier          ###   ########.fr       */
+/*   Updated: 2018/12/18 13:07:31 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,40 +39,19 @@ int		create_tab(char **map, int size)
 	while (y < size)
 	{
 		x = 0;
-		printf("y : %d\n", y);
 		if (!(map[y] = (char *)malloc(sizeof(char) * (size + 1))))
 				return (0);
 		while (x < size)
 		{
-			printf("x : %d\n", x);
 			map[y][x] = '.';
-			x++;
-		}
-		map[y][x] = '\0';
-		y++;
-	}
-	printf("%d\n", 1);
-//	map[y][x] = 0;
-	return (1);
-}
-
-void	ft_print_map(char **map, int size)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while (map[y])
-	{
-		x = 0;
-		while (map[y][x])
-		{
 			ft_putchar(map[y][x]);
 			x++;
 		}
+		map[y][x] = '\0';
 		ft_putchar('\n');
 		y++;
 	}
+	return (1);
 }
 
 int		main(int ac, char **av)
@@ -88,9 +67,7 @@ int		main(int ac, char **av)
 		write(1, "Error\n", 6);
 		return (0);
 	}
-//	ft_putnbr(read_tetri(tabtetris, fd));
 	size = min_map(read_tetri(tabtetris, fd) * 4);
-//	ft_putnbr(size);
 //	if (!read_tetri(tabtetris, fd))
 //		return (0);
 //	if (!create_tab(map, size))
@@ -98,10 +75,8 @@ int		main(int ac, char **av)
 //		write(1, "Error\n", 6);
 //		return (0);
 //	}
-	printf("%d\n", create_tab(map, size));
-	
-//	ft_print_map(map, size);
-//	printf("%d\n", read_tetri(tabtetris, fd));
+	create_tab(map, size);
+//	ft_print_words_tables(map,'\n');
 	close(fd);
 	return (0);
 }
