@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 12:23:31 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 14:57:24 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 17:25:20 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 {
 	int		j;
-	int		x;
-	int		y;
 
 	j = 0;
 	while (j < 4)
@@ -43,7 +41,6 @@ int		ft_place(char **map, t_tris tetris, int *fpos, char letter)
 		map[fpos[1] + tetris.content[j][1]][fpos[0] + tetris.content[j][0]] = letter;
 		j++;
 	}
-//	ft_print_words_tables(map, '\n');
 	return (1);
 }
 
@@ -53,29 +50,32 @@ int		put_tetris(t_tris tabtetris[], char **map, int size, int nbt)
 	char	letter;
 	int		j;
 
-	j = 0;
+	j = 1;
 	letter = 'A';
 	fpos[0] = 0;
 	fpos[1] = 0;
-	while (j < nbt)
+	while (j <= nbt)
 	{
-		if((ft_can_place(map, *tabtetris, fpos, size)) == 1)
-			ft_place(map, *tabtetris, fpos, letter);
-//		ft_putnbr(ft_can_place(map, *tabtetris, fpos, size));
-		if((ft_can_place(map, *tabtetris, fpos, size)) == -1)
+		if ((ft_can_place(map, *tabtetris, fpos, size)) == 1)
 		{
-			ft_putendl("ok");
-			if (fpos[0] < size)
-				fpos[0] += 1;
-			if (fpos[0] == size && fpos[1] < size)
+			ft_place(map, *tabtetris, fpos, letter);
+			j++;
+			letter += 1;
+		}
+		if ((ft_can_place(map, *tabtetris, fpos, size)) < 1)
+		{
+			if (fpos[0] <= size)
+				fpos[0]++;
+			if (fpos[0] == size && fpos[1] <= size)
 			{
 				fpos[0] = 0;
-				fpos[1] += 1;
+				fpos[1]++;
 			}
+			if (fpos[0] == size && fpos[1] == size)
+				return(0);
 		}
-		letter += 1;
+		printf("fpos[y] : %d\nfpos[x] : %d\n", fpos[1], fpos[0]);
 		tabtetris++;
-		j++;
 	}
 	return (1);
 }

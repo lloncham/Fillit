@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:28:36 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 14:33:46 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 16:31:28 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <fcntl.h>
 # include "./libft/libft.h"
 # include "./libft/get_next_line.h"
+
+# include <stdio.h>
 
 typedef struct		s_tris
 {

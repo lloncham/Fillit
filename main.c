@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 14:33:29 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 17:25:22 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char	**create_tab(char **map, int size)
 		map[y][x] = '\0';
 		y++;
 	}
+	map[y] = 0;
 	return (map);
 }
 
@@ -60,6 +61,7 @@ int		main(int ac, char **av)
 	char **map;
 	t_tris tabtetris[27];
 
+	map = NULL;
 	fd = open(av[1], O_RDONLY);
 	if (ac != 2 || fd == -1)
 	{
@@ -76,7 +78,9 @@ int		main(int ac, char **av)
 	}
 	ft_putendl("map vierge ok!");
 	put_tetris(tabtetris, map, size, nbt);
+	ft_putendl("tetris poseey");
 	ft_print_words_tables(map,'\n');
+	ft_putendl("ok");
 	close(fd);
 	return (0);
 }
