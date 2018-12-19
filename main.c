@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 13:57:25 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 14:33:29 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	ft_putendl("map vierge ok!");
-	put_tetris(tabtetris, map, size);
+	put_tetris(tabtetris, map, size, nbt);
 	ft_print_words_tables(map,'\n');
 	close(fd);
 	return (0);

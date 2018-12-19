@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:28:36 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 13:57:27 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 14:33:46 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ char				**create_tab(char **map, int size);
 int					min_map(int nb);
 int					ft_can_place(char **map, t_tris tetris, int *fpos, int size);
 int					ft_place(char **map, t_tris tetris, int *fpos, char letter);
-int					put_tetris(t_tris *tabtetris, char **map, int size);
+int					put_tetris(t_tris *tabtetris, char **map, int size, int nbt);
 
 #endif
