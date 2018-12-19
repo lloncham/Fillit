@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:28:36 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 11:25:13 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 13:04:22 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 typedef struct		s_tris
 {
 	int			content[4][2];
-
+	int			empty;
 }					t_tris;
 
 int					isvalid(char *str, int len);

@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 14:17:42 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/19 10:50:52 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/19 12:10:46 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		read_tetri(t_tris *tabtetris, int fd)
 		tabtetris[i] = new_tetri(buff, ret);
 		i++;
 	}
+	tabtetris[i].empty = 1;
 	return (i);
 }
 
