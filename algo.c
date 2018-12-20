@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 12:23:31 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/20 16:10:27 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/20 18:06:16 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,24 @@
 int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 {
 	int		j;
+	int		x;
+	int		y;
 
 	j = 0;
 	while (j < 4)
 	{
-		if ((fpos[1] + tetris.content[j][1]) > 0 && (fpos[0] + tetris.content[j][0] < 0))
-			return (0);
-		if ((fpos[1] + tetris.content[j][1]) > size && (fpos[0] + tetris.content[j][0]) > size)
-			return (0);
-		if (map[fpos[1] + tetris.content[j][1]][fpos[0] + tetris.content[j][0]] != '.')
-			return (0);
-		if (fpos[0] == size && fpos[1] == size)
+		y = fpos[1] + tetris.content[j][1];
+		x = fpos[0] + tetris.content[j][0];
+		if (y >= size - 1)
 			return(-1);
+		if (x >= size)
+			return (0);
+		if (y < 0 && x < 0)
+			return (0);
+		if (map[y][x] != '.')
+			return (0);
 		j++;
 	}
-
 	return (1);
 }
 
@@ -71,19 +74,18 @@ char	**put_tetris(t_tris tabtetris[], char **map, int size, char letter)
 	{
 		if (fpos[0] < size)
 			fpos[0]++;
-		if (fpos[0] == size && fpos[1] < size)
+		if (fpos[0] == size && fpos[1] < size - 1)
 		{
-			fpos[1]++;
 			fpos[0] = 0;
+			fpos[1]++;
 		}
-		printf("y = %d, x = %d, res = %d, letter = %c\n", fpos[1], fpos[0], ft_can_place(map, *tabtetris, fpos, size), letter);
 		if (ft_can_place(map, *tabtetris, fpos, size) == -1)
-			break ;
+			break;
 		if (ft_can_place(map, *tabtetris, fpos, size) == 1)
 		{
 			ft_place(map, *tabtetris, fpos, letter);
 			ft_print_words_tables(map, '\n');
-			if (((map = put_tetris(tabtetris + 1, map, size, letter + 1)) != NULL))
+			if ((put_tetris(tabtetris + 1, map, size, letter + 1)) != NULL)
 				return (map);
 			ft_remove(map, *tabtetris, fpos);
 		}

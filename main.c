@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/20 16:10:31 by lloncham         ###   ########.fr       */
+/*   Updated: 2018/12/20 18:10:15 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,6 @@ char	**create_tab(char **map, int size)
 	return (map);
 }
 
-int		error(void)
-{
-	ft_putendl("Error");
-	return (0);
-}
-
 int		main(int ac, char **av)
 {
 	int		fd;
@@ -70,19 +64,27 @@ int		main(int ac, char **av)
 	map = NULL;
 	fd = open(av[1], O_RDONLY);
 	if (ac != 2 || fd == -1)
-		error();
+	{
+		ft_putendl("error");
+		return (0);
+	}
 	if ((nbt = read_tetri(tabtetris, fd)) <= 0)
-		error();
-	size = min_map(nbt * 4);
+	{
+		ft_putendl("error");
+		return (0);
+	}
+	size = min_map(nbt * 4) - 1;
 	while (map == NULL)
 	{
 		if (!(map = create_tab(map, size)))
-			error();
+		{
+			ft_putendl("error");
+			return (0);
+		}
 		if ((map = put_tetris(tabtetris, map, size, 'A')) == NULL)
 			free(map);
 		size++;
 	}
-	printf("ici");
 	ft_print_words_tables(map,'\n');
 	close(fd);
 	return (0);
