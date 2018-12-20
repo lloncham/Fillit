@@ -6,7 +6,7 @@
 #    By: lloncham <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/19 16:24:52 by lloncham          #+#    #+#              #
-#    Updated: 2018/12/20 11:43:25 by lloncham         ###   ########.fr        #
+#    Updated: 2018/12/20 13:54:42 by lloncham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,5 +23,9 @@ $(NAME) :
 clean :
 	@rm -f $(NAME)
 	@echo "Clean!"
+
+fclean :
+	@rm -rf $(NAME)
+	@echo "all clean"
 
 re : clean all
