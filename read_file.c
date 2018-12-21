@@ -16,17 +16,22 @@ int		read_tetri(t_tris *tabtetris, int fd)
 {
 	char	buff[22];
 	int		ret;
+	int		tmp;
 	int		i;
 
 	i = 0;
 	while (((ret = read(fd, buff, 21)) > 0))
 	{
+		tmp = 0;
 		buff[ret] = '\0';
+		tmp = ret;
 		if (isvalid(buff, ret) != 0)
 			return (0);
 		tabtetris[i] = new_tetri(buff, ret);
 		i++;
 	}
+	if (tmp != 20)
+		return (0);
 	tabtetris[i].content[0][0] = 8;
 	return (i);
 }

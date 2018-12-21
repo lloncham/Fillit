@@ -32,7 +32,6 @@ int		goodchar(char *str, int len)
 		}
 		else
 		{
-			//bezarre
 			if (str[i] != '\n')
 				return (-1);
 		}
@@ -40,7 +39,6 @@ int		goodchar(char *str, int len)
 	}
 	if (str[len] != '\0')
 		return (-1); 
-	//bezarre
 	if (point != 12 || hash != 4)
 		return (-1);
 	return (0);
