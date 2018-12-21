@@ -73,10 +73,10 @@ int		main(int ac, char **av)
 		ft_putendl("error");
 		return (0);
 	}
-	size = min_map(nbt * 4) - 1;
+	size = min_map(nbt * 4);
 	while (map == NULL)
 	{
-		if (!(map = create_tab(map, size)))
+		if (!(map = create_tab(map, size - 1)))
 		{
 			ft_putendl("error");
 			return (0);

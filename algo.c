@@ -84,7 +84,6 @@ char	**put_tetris(t_tris tabtetris[], char **map, int size, char letter)
 		if (ft_can_place(map, *tabtetris, fpos, size) == 1)
 		{
 			ft_place(map, *tabtetris, fpos, letter);
-			ft_print_words_tables(map, '\n');
 			if ((put_tetris(tabtetris + 1, map, size, letter + 1)) != NULL)
 				return (map);
 			ft_remove(map, *tabtetris, fpos);

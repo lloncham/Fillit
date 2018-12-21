@@ -18,7 +18,7 @@ OBJECTS = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME):
 	@gcc -Wall -Wextra -Werror -c $(SRC)
 	@ar rc $(NAME) $(OBJECTS)
 	@echo "Ready!"

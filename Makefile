@@ -21,16 +21,15 @@ SRC = algo.c main.c read_file.c valid_file.c
 all	: $(NAME)
 
 $(NAME) :
-	cd libft ; $(MAKE) -f Makefile
-	$(CC) $(CFLAG) -o $(NAME) $(SRC) -L./libft -lft
-	@echo "Ready!"
+	@cd libft ; $(MAKE) -f Makefile
+	@$(CC) $(CFLAG) -o $(NAME) $(SRC) -L./libft -lft
 
 clean :
-	@rm -f $(NAME)
-	@echo "Clean!"
+	@cd libft ; $(MAKE) -f Makefile clean 
+
 
 fclean :
-	@rm -rf $(NAME)
-	@echo "all clean"
+	@rm -f $(NAME)
+	@cd libft ; $(MAKE) -f Makefile fclean 
 
-re : clean all
+re : fclean all
