@@ -18,10 +18,10 @@ int		goodchar(char *str, int len)
 	int point;
 	int hash;
 	
-	i = 0;
+	i = -1;
 	point = 0;
 	hash = 0;
-	while (i < 20)
+	while (i++ < 20)
 	{
 		if (i % 5 < 4)
 		{
@@ -31,15 +31,10 @@ int		goodchar(char *str, int len)
 				hash++;
 		}
 		else
-		{
 			if (str[i] != '\n')
 				return (-1);
-		}
-		i++;
 	}
-	if (str[len] != '\0')
-		return (-1); 
-	if (point != 12 || hash != 4)
+	if (point != 12 || hash != 4 || str[len] != '\0')
 		return (-1);
 	return (0);
 }
@@ -47,26 +42,26 @@ int		goodchar(char *str, int len)
 int		touch(char *str)
 {
 	int i;
-	int tetri;
+	int tetris;
 
-	tetri = 0;
+	tetris = 0;
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '#')
 		{
 			if (((i + 1) < 21) && str[i + 1] == '#')
-				tetri++;
+				tetris++;
 			if (((i - 1) > -1) && str[i - 1] == '#')
-				tetri++;
+				tetris++;
 			if (((i + 5) < 21) && str[i + 5] == '#')
-				tetri++;
+				tetris++;
 			if (((i - 5) > -1) && str[i - 5] == '#')
-				tetri++;
+				tetris++;
 		}
 		i++;
 	}
-	if (tetri != 6 && tetri != 8)
+	if (tetris != 6 && tetris != 8)
 		return (-1);
 	return (0);
 }

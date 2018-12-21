@@ -57,7 +57,6 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	int		size;
-	int		nbt;
 	char	**map;
 	t_tris	tabtetris[27];
 
@@ -68,12 +67,11 @@ int		main(int ac, char **av)
 		ft_putendl("error");
 		return (0);
 	}
-	if ((nbt = read_tetri(tabtetris, fd)) <= 0)
+	if (!(size = min_map(read_tetri(tabtetris, fd) * 4)))
 	{
 		ft_putendl("error");
 		return (0);
 	}
-	size = min_map(nbt * 4);
 	while (map == NULL)
 	{
 		if (!(map = create_tab(map, size - 1)))

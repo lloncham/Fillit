@@ -19,9 +19,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "./libft/libft.h"
-# include "./libft/get_next_line.h"
-
-# include <stdio.h>
 
 typedef struct		s_tris
 {

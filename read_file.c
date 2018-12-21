@@ -38,16 +38,16 @@ int		read_tetri(t_tris *tabtetris, int fd)
 
 t_tris		new_tetri(char *buff, int len)
 {
-	t_tris tetris;
-	int 	i;
+	t_tris	tetris;
+	int		i;
 	int		j;
 	int		spos[2];
 
-	i = 0;
+	i = -1;
 	j = 0;
 	spos[0] = 3;
 	spos[1] = 3;
-	while (i < len)
+	while (i++ < len)
 	{
 		if (buff[i] == '#')
 		{
@@ -56,10 +56,9 @@ t_tris		new_tetri(char *buff, int len)
 			if (spos[1] > i / 5)
 				spos[1] = i / 5;
 		}
-		i++;
 	}
-	i = spos[1] * 5 + spos[0];
-	while (i < len)
+	i = spos[1] * 5 + spos[0] - 1;
+	while (i++ < len)
 	{
 		if (buff[i] == '#')
 		{
@@ -67,8 +66,6 @@ t_tris		new_tetri(char *buff, int len)
 			tetris.content[j][1] = (i / 5) - spos[1];
 			j++;
 		}
-		i++;
 	}
-	//printf("x: %d y: %d\n", tetris.content[3][0], tetris.content[3][1]);
 	return (tetris);
 }

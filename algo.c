@@ -24,7 +24,7 @@ int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 		y = fpos[1] + tetris.content[j][1];
 		x = fpos[0] + tetris.content[j][0];
 		if (y >= size - 1)
-			return(-1);
+			return (-1);
 		if (x >= size)
 			return (0);
 		if (y < 0 && x < 0)
