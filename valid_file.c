@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:52:20 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/20 17:35:54 by lloncham         ###   ########.fr       */
+/*   Updated: 2019/01/03 14:44:52 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		goodchar(char *str, int len)
 	int i;
 	int point;
 	int hash;
-	
+
 	i = -1;
 	point = 0;
 	hash = 0;
@@ -30,9 +30,8 @@ int		goodchar(char *str, int len)
 			if (str[i] == '#')
 				hash++;
 		}
-		else
-			if (str[i] != '\n')
-				return (-1);
+		else if (str[i] != '\n')
+			return (-1);
 	}
 	if (point != 12 || hash != 4 || str[len] != '\0')
 		return (-1);

@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 12:23:31 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/20 18:06:16 by lloncham         ###   ########.fr       */
+/*   Updated: 2019/01/03 15:54:33 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 
 int		ft_place(char **map, t_tris tetris, int *fpos, char letter)
 {
-	int		j; 
+	int		j;
 
 	j = 0;
 	while (j < 4)
 	{
-		map[fpos[1] + tetris.content[j][1]][fpos[0] + tetris.content[j][0]] = letter;
+		map[fpos[1] + tetris.content[j][1]][fpos[0]
+			+ tetris.content[j][0]] = letter;
 		j++;
 	}
 	return (1);
@@ -51,12 +52,13 @@ int		ft_place(char **map, t_tris tetris, int *fpos, char letter)
 
 int		ft_remove(char **map, t_tris tetris, int *fpos)
 {
-	int		j; 
+	int		j;
 
 	j = 0;
 	while (j < 4)
 	{
-		map[fpos[1] + tetris.content[j][1]][fpos[0] + tetris.content[j][0]] = '.';
+		map[fpos[1] + tetris.content[j][1]][fpos[0]
+			+ tetris.content[j][0]] = '.';
 		j++;
 	}
 	return (1);
@@ -72,15 +74,14 @@ char	**put_tetris(t_tris tabtetris[], char **map, int size, char letter)
 		return (map);
 	while (1)
 	{
-		if (fpos[0] < size)
-			fpos[0]++;
+		fpos[0] < size ? fpos[0]++ : 0;
 		if (fpos[0] == size && fpos[1] < size - 1)
 		{
 			fpos[0] = 0;
 			fpos[1]++;
 		}
 		if (ft_can_place(map, *tabtetris, fpos, size) == -1)
-			break;
+			break ;
 		if (ft_can_place(map, *tabtetris, fpos, size) == 1)
 		{
 			ft_place(map, *tabtetris, fpos, letter);

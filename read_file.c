@@ -6,13 +6,13 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 14:17:42 by lloncham          #+#    #+#             */
-/*   Updated: 2018/12/20 16:43:21 by lloncham         ###   ########.fr       */
+/*   Updated: 2019/01/03 16:00:38 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		read_tetri(t_tris *tabtetris, int fd)
+int			read_tetri(t_tris *tabtetris, int fd)
 {
 	char	buff[22];
 	int		ret;
@@ -22,6 +22,8 @@ int		read_tetri(t_tris *tabtetris, int fd)
 	i = 0;
 	while (((ret = read(fd, buff, 21)) > 0))
 	{
+		if (ret == -1)
+			return (0);
 		tmp = 0;
 		buff[ret] = '\0';
 		tmp = ret;
@@ -36,6 +38,24 @@ int		read_tetri(t_tris *tabtetris, int fd)
 	return (i);
 }
 
+int			*pos_loop(int *spos, char *buff, int len)
+{
+	int i;
+
+	i = -1;
+	while (i++ < len)
+	{
+		if (buff[i] == '#')
+		{
+			if (spos[0] > i % 5)
+				spos[0] = i % 5;
+			if (spos[1] > i / 5)
+				spos[1] = i / 5;
+		}
+	}
+	return (spos + i);
+}
+
 t_tris		new_tetri(char *buff, int len)
 {
 	t_tris	tetris;
@@ -47,16 +67,7 @@ t_tris		new_tetri(char *buff, int len)
 	j = 0;
 	spos[0] = 3;
 	spos[1] = 3;
-	while (i++ < len)
-	{
-		if (buff[i] == '#')
-		{
-			if (spos[0] > i % 5)
-				spos[0] = i % 5;
-			if (spos[1] > i / 5)
-				spos[1] = i / 5;
-		}
-	}
+	pos_loop(spos, buff, len);
 	i = spos[1] * 5 + spos[0] - 1;
 	while (i++ < len)
 	{
