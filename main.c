@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/04 12:50:41 by fcazier          ###   ########.fr       */
+/*   Updated: 2019/01/04 13:55:28 by fcazier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	free_tab(char **tab)
 		return ;
 	while (tab[++i])
 		free(tab[i]);
+	free(tab);
 }
 
 
