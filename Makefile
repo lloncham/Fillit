@@ -6,7 +6,7 @@
 #    By: lloncham <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/19 16:24:52 by lloncham          #+#    #+#              #
-#    Updated: 2019/01/04 13:56:50 by fcazier          ###   ########.fr        #
+#    Updated: 2019/01/07 13:11:10 by lloncham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAG = -Wall -Wextra -Werror 
 
-SRC = algo.c main.c read_file.c valid_file.c
+SRC = ./srcs/algo.c ./srcs/main.c ./srcs/read_file.c ./srcs/valid_file.c
 
 all	: $(NAME)
 

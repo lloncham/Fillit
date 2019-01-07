@@ -6,11 +6,11 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:52:20 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/03 14:44:52 by fcazier          ###   ########.fr       */
+/*   Updated: 2019/01/07 13:09:22 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../include/fillit.h"
 
 int		goodchar(char *str, int len)
 {

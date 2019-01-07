@@ -6,11 +6,11 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 12:23:31 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/07 12:26:52 by lloncham         ###   ########.fr       */
+/*   Updated: 2019/01/07 13:08:46 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../include/fillit.h"
 
 int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 {

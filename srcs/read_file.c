@@ -6,11 +6,11 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 14:17:42 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/03 16:00:38 by fcazier          ###   ########.fr       */
+/*   Updated: 2019/01/07 13:09:08 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../include/fillit.h"
 
 int			read_tetri(t_tris *tabtetris, int fd)
 {
