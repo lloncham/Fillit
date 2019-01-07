@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 12:23:31 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/03 15:54:33 by fcazier          ###   ########.fr       */
+/*   Updated: 2019/01/07 12:26:52 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 			return (0);
 		if (y < 0 && x < 0)
 			return (0);
-		if (map[y][x] != '.')
+		if (map[y][x] != '.' && map[y][x] != '*')
 			return (0);
 		j++;
 	}
@@ -85,10 +85,11 @@ char	**put_tetris(t_tris tabtetris[], char **map, int size, char letter)
 		if (ft_can_place(map, *tabtetris, fpos, size) == 1)
 		{
 			ft_place(map, *tabtetris, fpos, letter);
-			if ((put_tetris(tabtetris + 1, map, size, letter + 1)) != NULL)
+			if ((put_tetris(tabtetris + 1, map, size, letter + 1))[0][0] != '*')
 				return (map);
 			ft_remove(map, *tabtetris, fpos);
 		}
 	}
-	return (NULL);
+	map[0][0] = '*';
+	return (map);
 }

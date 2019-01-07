@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:28:36 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/03 14:40:25 by fcazier          ###   ########.fr       */
+/*   Updated: 2019/01/07 10:38:48 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int					ft_can_place(char **map, t_tris tetris,
 char				**put_tetris(t_tris *tabtetris, char **map,
 		int size, char letter);
 int					ft_remove(char **map, t_tris tetris, int *fpos);
+void				free_tab(char **tab);
 
 #endif
