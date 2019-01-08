@@ -6,7 +6,7 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 12:23:31 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/07 15:30:03 by lloncham         ###   ########.fr       */
+/*   Updated: 2019/01/08 15:20:03 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_can_place(char **map, t_tris tetris, int *fpos, int size)
 			return (0);
 		if (y < 0 && x < 0)
 			return (0);
-		if (map[y][x] != '.' && map[y][x] != '*')
+		if (map[y][x] != '.')
 			return (0);
 		j++;
 	}
