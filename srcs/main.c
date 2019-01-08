@@ -6,15 +6,15 @@
 /*   By: lloncham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 16:29:21 by lloncham          #+#    #+#             */
-/*   Updated: 2019/01/07 17:36:04 by lloncham         ###   ########.fr       */
+/*   Updated: 2019/01/08 18:06:31 by lloncham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fillit.h"
 
-void	error(void)
+void	error(char *str)
 {
-	ft_putendl("error");
+	ft_putendl(str);
 	exit(0);
 }
 
@@ -80,13 +80,15 @@ int		main(int ac, char **av)
 	t_tris	tabtetris[27];
 
 	map = NULL;
-	if ((((fd = open(av[1], O_RDONLY)) == -1) || ac != 2)
+	if (ac != 2)
+		error("usage : ./fillit target_file");
+	if (((fd = open(av[1], O_RDONLY)) == -1)
 			|| (!(size = min_map(read_tetri(tabtetris, fd) * 4))))
-		error();
+		error("error");
 	while (map == NULL)
 	{
 		if (!(map = create_tab(map, size - 1)))
-			error();
+			error("error");
 		save = map;
 		if ((map = put_tetris(tabtetris, map, size, 'A')) == NULL)
 			free_tab(save);
